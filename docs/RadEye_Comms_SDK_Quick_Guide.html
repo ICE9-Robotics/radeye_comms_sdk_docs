@@ -52,68 +52,35 @@
     <main class="pdoc">
         <div class="docstring"><h1 id="radeye-comms-sdk-quick-guide">RadEye Comms SDK — Quick Guide</h1>
 
-<p>This quick guide is for developers integrating the <strong>RadEye Comms SDK</strong> distributed as a compiled Python wheel (<code>radeye-comms-sdk</code>).</p>
+<p>This quick guide is for developers integrating the <strong>RadEye Comms SDK</strong> (<code>radeye-comms-sdk</code>).</p>
 
 <hr />
 
 <h2 id="1-overview">1. Overview</h2>
 
-<p>The SDK communicates with RadEye radiation survey instruments via the RadEye_Comms board. It:</p>
+<p>RadEye Comms is a proprietary device that enables direct communication between a RadEye device and a PC via a USB cable. This SDK is for further software development to integrate into your systems.</p>
 
-<ul>
-<li>Detects the connected device type (<strong>G-10</strong> or <strong>SX</strong> family)</li>
-<li>Reads live <strong>autosend</strong> telemetry or <strong>polled</strong> display/status data</li>
-<li>Exposes structured Python objects for developing your own software, e.g. ROS integration etc.</li>
-</ul>
+<p>The SDK currently supports RadEye G-10 and SX. We are adding supports for more devices.</p>
+
+<p>You can use RadEye Comms to read dosage rates and device configurations. In the future, we can add functions to configure RadEye devices.</p>
 
 <h2 id="2-system-requirements">2. System requirements</h2>
 
-<h3 id="21-python">2.1 Python</h3>
+<p>| Python version | 3.10 / 3.13 |
+| Platform | Windows x64 / Linux x64 / macOS arm64 |</p>
 
-<table>
-<thead>
-<tr>
-  <th>Requirement</th>
-  <th>Detail</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Python version</td>
-  <td>3.10 / 3.13</td>
-</tr>
-<tr>
-  <td>Platform</td>
-  <td>Windows x64 / Linux x64 / macOS arm64</td>
-</tr>
-</tbody>
-</table>
+<p>If you require support for a specific Python version or system architecture, please contact us and we will try out best to fulfill your requirement.</p>
 
-<p>Should you require support for a specific Python version or system architecture, please kindly contact us. We will sort you out.</p>
-
-<h3 id="22-dependencies">2.2 Dependencies</h3>
-
-<table>
-<thead>
-<tr>
-  <th>Package</th>
-  <th>Version</th>
-  <th>Role</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td><code>pyserial</code></td>
-  <td>≥ 3.5</td>
-  <td>Serial I/O (installed separately or via pip dependency)</td>
-</tr>
-</tbody>
-</table>
-
-<h3 id="23-hardware-link">2.3 Hardware link</h3>
+<h3 id="21-dependencies">2.1 Dependencies</h3>
 
 <ul>
-<li>RadEye instrument with remote control supported</li>
+<li><code>pyserial</code> ≥ 3.5</li>
+</ul>
+
+<h3 id="22-hardware-link">2.2 Hardware link</h3>
+
+<ul>
+<li>RadEye instrument (currently we support G-10 and SX, more device supports are coming)</li>
 <li>Serial connection via a USB cable. Serial port name examples:
 <ul>
 <li>Windows: <code>COM3</code>, <code>COM10</code>, …</li>
@@ -168,7 +135,7 @@
 </tbody>
 </table>
 
-<p>Copy the wheel file correct for your develop environment and run:</p>
+<p>Copy the wheel file correct for your system environment and run:</p>
 
 <div class="pdoc-code codehilite">
 <pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>radeye_comms_sdk-0.0.1-cp310-cp310-win_amd64.whl
@@ -184,7 +151,7 @@
 
 <h2 id="4-examples">4. Examples</h2>
 
-<p>See <code>examples</code> folder for a few simple examples. You can test them in a terminal, e.g.</p>
+<p>A few examples are supplied with the binary ready for you to test:</p>
 
 <div class="pdoc-code codehilite">
 <pre><span></span><code>python<span class="w"> </span>examples/example_autosend.py<span class="w"> </span>COM10
